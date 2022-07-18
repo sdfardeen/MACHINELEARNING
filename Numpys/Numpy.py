@@ -90,3 +90,43 @@ for i in np.nditer(nd_iter):
 #                       3
 #                       4
 #                       5
+
+re = np.arange(20)
+re = re.reshape(5,4)
+print(re)
+# printing the given range of elements iin the shape of (5,4)
+
+arr = np.array([[-1, 2, 0, 4],
+                [4, -0.5, 6, 0],
+                [2.6, 0, 7, 8],
+                [3, -7, 4, 2.0]])
+
+sliced_arr = arr[:2, ::2]
+print(sliced_arr)
+# slicing the elements
+
+for i in np.nditer(arr, order='F'):
+    print(i)
+# printing every element in a single column using np.nditer()
+
+print(np.char.lower(['SYED', 'FARDEEN']))
+# printing all upper case char to lower case char
+
+print(np.char.split('Iam Fardeen'))
+# splitting a sentence in seperate words
+print(np.char.split('Iam, Fardeen', sep = ","))
+print(np.char.join('.', 'fardeen'))
+# joining both words by its 2nd word for each char of that word
+
+so = np.array([[12, 15], [10, 1]])
+so1 = np.sort(so, axis = 0)
+print(so1)
+# sorting the elements along the axis 0
+
+so2 = np.sort(so, axis = -1)
+print(so2)
+# sorting elements in axis -1
+
+rand = np.random.randint(low = 0, high = 3, size = 5)
+print(rand)
+# printing random integers
