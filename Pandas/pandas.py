@@ -59,10 +59,10 @@ df1.nunique(axis=0)
 
 nill = pd.read_excel("C:\\Users\\SYED ZAHIRA\\OneDrive\\Documents\\Book1.xls")
 bool_series = pd.isnull(nill["Title"])
-nill[bool_series]
+print(nill[bool_series])
 
 new = nill["Title"].isin(["DEF"])
-nill[new]
+print(nill[new])
 # pd.isin() returns the value that data inthe file, returns Boolean dtype
 
 nill.sort_index(axis=0)
@@ -72,3 +72,55 @@ csv = pd.read_csv("C:\\Users\\SYED ZAHIRA\\Downloads\\nba.csv", index_col = "Nam
 loc = csv.loc["Avery Bradley"]
 print(loc)
 
+iloc = csv.iloc[1:5]
+print(iloc)
+
+
+# making data frame from csv file
+data = pd.read_csv("C:\\Users\\SYED ZAHIRA\\Downloads\\nba.csv", index_col ="Name" )
+
+# changing index cols with rename()
+data.rename(index = {"Avery Bradley": "Aegan",
+                     "Jae Crowder":"Jon Snow"},
+                                 inplace = True)
+# display
+print(data)
+
+# deleting the column using drop
+data.drop(["College"], axis=1, inplace=True)
+print(data)
+
+pop_data = data.pop("Age")
+print(data)
+
+new["New Col"] = pop_data
+print(new)
+
+# Converting a Pandas dataframe to an xlsx file using Pandas and XlsxWriter
+excel = pd.DataFrame({'DATA':['TItle','Type','Age']})
+workbook = pd.ExcelWriter('C:\\Users\\SYED ZAHIRA\\Downloads\\Book1.xlsx',
+                         engine = 'xlsxwriter')
+excel.to_excel(workbook, sheet_name ='Sheet2')
+workbook.save()
+
+# Writing multiple dataframes to worksheets using Pandas and XlsxWriter
+excel1 = pd.DataFrame({'Data':['One', 'Two', 'Three', 'Four']})
+excel2 = pd.DataFrame({'Data':['Five', 'Six', 'Seven', 'Eight']})
+excel3 = pd.DataFrame({'Data':['Nine', 'ten', 'Eleven', 'Twelve']})
+workbook = pd.ExcelWriter('C:\\Users\\SYED ZAHIRA\\Downloads\\Book1.xlsx',
+                         engine = 'xlsxwriter')
+excel1.to_excel(workbook, sheet_name ='Sheet3')
+excel2.to_excel(workbook, sheet_name ='Sheet4')
+excel3.to_excel(workbook, sheet_name ='Sheet5')
+workbook.save()
+
+# Positioning dataframes in a worksheet using Pandas and XlsxWriter
+excel1 = pd.DataFrame({'Data':['One', 'Two', 'Three', 'Four']})
+excel2 = pd.DataFrame({'Data':['Five', 'Six', 'Seven', 'Eight']})
+excel3 = pd.DataFrame({'Data':['Nine', 'ten', 'Eleven', 'Twelve']})
+workbook = pd.ExcelWriter('C:\\Users\\SYED ZAHIRA\\Downloads\\Book1.xlsx',
+                         engine = 'xlsxwriter')
+excel1.to_excel(workbook, sheet_name ='Sheet3', startcol=6)
+excel2.to_excel(workbook, sheet_name ='Sheet3', startrow=10)
+excel3.to_excel(workbook, sheet_name ='Sheet3', startcol=10)
+workbook.save()
