@@ -1,5 +1,5 @@
 numpy
 matplotlib
 pillow
-cv2
 pandas
+xlrd
