@@ -3,3 +3,8 @@ matplotlib
 pillow
 pandas
 xlrd
+scipy
+seaborn
+plotly
+cufflinks
+sklearn
