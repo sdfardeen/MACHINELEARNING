@@ -19,7 +19,6 @@ print(df.columns)
 
 sns.pairplot(df)
 plt.show()
-time.sleep(10)
 
 sns.distplot(df['Product Price'])
 plt.show()
